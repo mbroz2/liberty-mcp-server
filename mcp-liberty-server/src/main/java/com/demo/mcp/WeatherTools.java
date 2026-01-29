@@ -7,6 +7,9 @@ import io.openliberty.mcp.annotations.ToolArg;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+/*
+ * A class annotated with a CDI managed bean is required for the @Tool annotations to be discovered.
+ */
 @ApplicationScoped
 public class WeatherTools {
     
