@@ -11,9 +11,12 @@
     <packaging>war</packaging>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <wlp-dir-path>${basedir}/wlp</wlp-dir-path>
+        <wlp-version>26.0.0.4-beta</wlp-version>
+        <mcp-jar-version>1.0.111</mcp-jar-version>
     </properties>
 
     <dependencies>
@@ -34,13 +37,12 @@
         </dependency>
 
         <!-- Liberty MCP API -->
-        <!-- This file is pulled from `/wlp/lib` directory out of the nightly build's zip (see <runtimeUrl>).-->
         <dependency>
             <groupId>io.openliberty.mcp</groupId>
             <artifactId>mcp-core</artifactId>
-            <version>1.0</version>
+            <version>${mcp-jar-version}</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/api/io.openliberty.mcp_1.0.jar</systemPath>
+            <systemPath>${wlp-dir-path}/lib/io.openliberty.mcp_${mcp-jar-version}.jar</systemPath>
         </dependency>
     </dependencies>
 
@@ -59,11 +61,14 @@
                 <plugin>
                     <groupId>io.openliberty.tools</groupId>
                     <artifactId>liberty-maven-plugin</artifactId>
-                    <version>3.11.4</version>
+                    <version>3.11.5</version>
                     <configuration>
-                        <install>
-                            <runtimeUrl>https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/nightly/2025-09-23_1355/openliberty-25.0.0.11-beta-cl251020250923-1355.zip</runtimeUrl>
-                        </install>
+                        <runtimeArtifact>
+                            <groupId>io.openliberty.beta</groupId>
+                            <artifactId>openliberty-runtime</artifactId>
+                            <version>${wlp-version}</version>
+                            <type>zip</type>
+                        </runtimeArtifact>
                     </configuration>
                 </plugin>
             </plugins>
