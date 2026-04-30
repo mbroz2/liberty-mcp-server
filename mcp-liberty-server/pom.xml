@@ -42,7 +42,7 @@
             <artifactId>mcp-core</artifactId>
             <version>${mcp-jar-version}</version>
             <scope>system</scope>
-            <systemPath>${wlp-dir-path}/lib/io.openliberty.mcp_${mcp-jar-version}.jar</systemPath>
+            <systemPath>${project.basedir}/api/io.openliberty.mcp_${mcp-jar-version}.jar</systemPath>
         </dependency>
     </dependencies>
 
