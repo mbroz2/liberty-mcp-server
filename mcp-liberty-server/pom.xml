@@ -14,7 +14,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <wlp-dir-path>${basedir}/wlp</wlp-dir-path>
         <wlp-version>26.0.0.4-beta</wlp-version>
         <mcp-jar-version>1.0.111</mcp-jar-version>
     </properties>
